@@ -36,6 +36,16 @@ npm start
 
 Open [http://localhost:2567](http://localhost:2567) in your browser.
 
+## Docker Details
+
+```bash
+docker build -t localhost:5000/colyseus-example:latest .
+docker run -p 8080:8080 localhost:5000/colyseus-example:latest
+docker tag localhost:5000/colyseus-example:latest 858624437249.dkr.ecr.us-east-2.amazonaws.com/dev-images:colyseus-example
+docker push 858624437249.dkr.ecr.us-east-2.amazonaws.com/dev-images:colyseus-example
+```
+
+
 ## License
 
 MIT
