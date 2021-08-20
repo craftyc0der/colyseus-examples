@@ -60,8 +60,14 @@ export default Arena({
     },
 
     initializeExpress: (app) => {
-        app.use('/', serveIndex(path.join(__dirname, "static"), {'icons': true}))
-        app.use('/', express.static(path.join(__dirname, "static")));
+        var router = express.Router()
+        console.log(__dirname)
+        console.log(path.join(__dirname, "static"))
+        router.use('/', serveIndex(path.join(__dirname, "static"), {'icons': true}))
+        router.use('/', express.static(path.join(__dirname, "static")));
+        app.use('/', router)
+        app.use('/game/abc123', router)
+        app.use('/game/def456', router)
 
         // app.use(serveIndex(path.join(__dirname, "static"), {'icons': true}))
         // app.use(express.static(path.join(__dirname, "static")));

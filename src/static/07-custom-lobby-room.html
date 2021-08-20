@@ -34,7 +34,10 @@
 
     <script>
       var host = window.document.location.host.replace(/:.*/, '');
-      var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':' + location.port : ''));
+      var path = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
+
+      var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : '') + path); 
+
       var lobby;
 
       function join () {

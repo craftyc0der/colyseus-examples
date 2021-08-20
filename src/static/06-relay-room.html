@@ -50,8 +50,10 @@
 
     <script>
         var host = window.document.location.host.replace(/:.*/, '');
+        var path = location.pathname.substring(0, location.pathname.lastIndexOf("/"));
 
-        var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':' + location.port : ''));
+        var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : '') + path); 
+
         var room;
 
         var colors = ['red', 'green', 'yellow', 'blue', 'cyan', 'magenta'];
