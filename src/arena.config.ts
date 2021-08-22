@@ -101,11 +101,13 @@ export default Arena({
             let agonesSDK = new AgonesSDK();
             await agonesSDK.connect();
             console.log(`game server AGONES connected`);
+            await agonesSDK.health();
             agonesSDK.watchGameServer(async (result) => {
-                // console.log('watch', result);
-                setInterval(() => {
-                    agonesSDK.health();
-                }, 1000);
+                //console.log('watch', result);
+                // the result variable contains the game-id which is required
+                // to bootstrap the server with the features defined on 
+                // GoSynth/Portal
+                await agonesSDK.health();
             });
             let ready = await agonesSDK.ready();
         }
