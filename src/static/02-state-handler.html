@@ -37,6 +37,8 @@
     <br />
     <button onclick="left()">left</button>
     <button onclick="right()">right</button>
+    <br />
+    <button onclick="shutdown()">shutdown</button>
 
     <script>
         var host = window.document.location.host.replace(/:.*/, '');
@@ -111,6 +113,9 @@
             room.send("move", { x: -1 })
         }
 
+        function shutdown () {
+            location.href=location.protocol + "//" + host + (location.port ? ':'+location.port : '') + path + "/shutdown"
+        }
 
     </script>
   </body>

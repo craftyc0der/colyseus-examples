@@ -29,6 +29,7 @@
     "@colyseus/arena": "^0.14.13",
     "@colyseus/monitor": "^0.14.0",
     "@colyseus/social": "^0.10.9",
+    "@google-cloud/agones-sdk": "^1.16.0",
     "colyseus": "0.14.20",
     "cors": "^2.8.5",
     "express": "^4.16.4",
