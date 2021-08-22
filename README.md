@@ -31,13 +31,16 @@ This is an example of telling Agones the GameServer is healthy.
             await agonesSDK.connect();
             console.log(`game server AGONES connected`);
             await agonesSDK.health();
-            agonesSDK.watchGameServer(async (result) => {
-                // console.log('watch', result);
-                // the result variable contains the game-id which is required
-                // to bootstrap the server with the features defined on 
-                // GoSynth/Portal
-                await agonesSDK.health();
-            });
+            setInterval(() => {
+                agonesSDK.health();
+            }, 1000);
+
+            // agonesSDK.watchGameServer(async (result) => {
+            //     console.log('watch', result);
+            //     // the result variable contains the game-id which is required
+            //     // to bootstrap the server with the features defined on 
+            //     // GoSynth/Portal
+            // });
             let ready = await agonesSDK.ready();
         }
     }
