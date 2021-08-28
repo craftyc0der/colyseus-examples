@@ -81,7 +81,7 @@ export default Arena({
         });
         app.use('/', router)
         // app.use('/game/def456', router)
-        app.use(/\/[a-zA-Z]{1,16}\/[a-z]{3}[0-9]{3}/, router)
+        app.use(/\/[a-zA-Z0-9\-_]{1,24}\/[a-z]{3}[0-9]{3}/, router)
         app.get('/health', (req, res) => {
             res.status(200).send('Ok');
         });
